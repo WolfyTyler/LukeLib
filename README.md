@@ -7,8 +7,6 @@ Esta biblioteca é projetada para otimizar projetos em Python que realizam manip
 
 Além disso, a biblioteca inclui a função `dynamicImport`, que permite a importação dinâmica de módulos, criação de instâncias de classes e execução de métodos. Essa funcionalidade adicional pode ser útil em projetos que requerem flexibilidade na importação e execução de componentes baseados em JSON ou em outros contextos onde a importação dinâmica é necessária.
 
----
-
 ## Write Json Data:
 
 A função `writeJsonData` é responsável por adicionar novos valores a um arquivo JSON existente. Ela realiza quatro etapas para garantir que os dados e o aquivo JSON estejam em um formato correto e utilizável.
