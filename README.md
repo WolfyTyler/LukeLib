@@ -1,5 +1,8 @@
 # _**Biblioteca LukeLib**_ 
 
+![Versão da LukeLib](https://img.shields.io/badge/Distribuição-1.0.0-blue)
+![Versões do Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+
 Esta biblioteca é projetada para otimizar projetos em Python que realizam manipulação significativa de arquivos JSON. Ela oferece uma série de ferramentas e funções para facilitar a leitura, escrita e validação de dados em formato JSON, aumentando a eficiência e a robustez do seu código.
 
 Além disso, a biblioteca inclui a função `dynamicImport`, que permite a importação dinâmica de módulos, criação de instâncias de classes e execução de métodos. Essa funcionalidade adicional pode ser útil em projetos que requerem flexibilidade na importação e execução de componentes baseados em JSON ou em outros contextos onde a importação dinâmica é necessária.
@@ -195,3 +198,74 @@ except Exception as e:
 ```
 
 Cada tipo de erro é tratado conforme sua especificidade e é levantado novamente para permitir o tratamento apropriado em níveis superiores da aplicação.
+
+## Como Utilizar a LukeLib: 
+
+A `LukeLib` foi projetada para ser intuitiva e fácil de usar, permitindo a manipulação eficiente de arquivos JSON e a importação dinâmica de módulos. Aqui estão alguns exemplos de como você pode usar as principais funcionalidades da biblioteca:
+
+### 1. Escrevendo Dados em um Arquivo JSON:
+
+A função `writeJsonData` é ideal para situações onde você precisa adicionar novos dados a um arquivo JSON existente de forma segura e consistente. Ela garante que os dados sejam escritos em um formato válido, evitando problemas como duplicação de entradas ou corrupção do arquivo JSON.
+
+### Exemplo de Uso: 
+
+```py
+from lukelib import writeJsonData
+
+# Caminho para o arquivo JSON
+json_path = 'save_file.json'
+
+# Dados que deseja adicionar
+new_values = {"nome": "João", "idade": 30}
+
+# Chamada da função
+writeJsonData(json_path, new_values)
+```
+Esse código adicionará o dicionário `new_values` ao arquivo `save_file.json`, garantindo que o conteúdo do arquivo permaneça consistente e válido.
+
+### 2. Lendo e Validando Dados de um Arquivo JSON:
+
+A função `readJsonData` é útil para quando você precisa garantir que os dados de um arquivo JSON estejam em um formato correto e utilizável antes de processá-los. Ela ajuda a evitar erros ao manipular JSONs vazios ou malformados, oferecendo uma camada extra de segurança para a leitura de arquivos.
+
+### Exemplo de Uso:
+```py
+from lukelib import readJsonData
+
+# Caminho para o arquivo JSON
+json_path = 'save_file.json'
+
+# Leitura e validação do arquivo JSON
+try:
+    data = readJsonData(json_path)
+    print(data)
+except JSONFileError as e:
+    print(f"Erro ao ler o arquivo JSON: {e}")
+```
+Esse exemplo lerá o conteúdo do arquivo `save_file.json`, validará os dados e imprimirá o conteúdo se estiver correto. Se houver algum problema com o formato do arquivo, um erro será gerado e exibido.
+
+### 3. Importação Dinâmica de Módulos e Execução de Métodos:
+
+A função `dynamicImport` é útil em situações onde você precisa carregar e executar código de maneira dinâmica e flexível. Por exemplo, quando o nome do módulo, classe ou método só é conhecido em tempo de execução, ou em sistemas onde a modularidade e a extensibilidade são cruciais, como plugins ou componentes configuráveis em tempo de execução.
+
+### Exemplo de Uso:
+
+```py
+from lukelib import dynamicImport
+
+# Parâmetros de importação dinâmica
+module_path = 'Tests/meu_modulo'
+class_name = 'MinhaClasse'
+method_name = 'meu_metodo'
+args = (arg1, arg2)  # Argumentos posicionais (Opcional)
+kwargs = {'chave': valor}  # Argumentos nomeados (Opcional)
+
+# Importa o módulo, cria a instância da classe e executa o método
+result = dynamicImport(module_path, class_name, method_name, *args, **kwargs)
+print(result)
+```
+
+Esse código demonstra como importar o módulo meu_modulo, instanciar a classe `MinhaClasse`, e executar o método `meu_metodo` com os argumentos fornecidos. Os parâmetros `args` e `kwargs` são opcionais e podem ser usados conforme necessário. O resultado da execução do método será armazenado na variável `result`.
+
+### Tratamento de Exceções:
+
+A `LukeLib` foi projetada para lidar com exceções comuns que podem ocorrer durante a manipulação de arquivos JSON e a importação dinâmica de módulos. Certifique-se de capturar e tratar essas exceções de maneira adequada em seus projetos para garantir uma execução segura e estável.
