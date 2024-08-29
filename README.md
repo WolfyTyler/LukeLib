@@ -251,7 +251,7 @@ A função `dynamicImport` é útil em situações onde você precisa carregar e
 from lukelib import dynamicImport
 
 # Parâmetros de importação dinâmica
-module_path = 'Tests/meu_modulo'
+module_path = 'Tests.meu_modulo' 
 class_name = 'MinhaClasse'
 method_name = 'meu_metodo'
 args = (arg1, arg2)  # Argumentos posicionais (Opcional)
@@ -262,7 +262,7 @@ result = dynamicImport(module_path, class_name, method_name, *args, **kwargs)
 print(result)
 ```
 
-Esse código demonstra como importar o módulo meu_modulo, instanciar a classe `MinhaClasse`, e executar o método `meu_metodo` com os argumentos fornecidos. Os parâmetros `args` e `kwargs` são opcionais e podem ser usados conforme necessário. O resultado da execução do método será armazenado na variável `result`.
+Esse código demonstra como importar o módulo `meu_modulo`, instanciar a classe `MinhaClasse`, e executar o método `meu_metodo` com os argumentos fornecidos. Os parâmetros `args` e `kwargs` são opcionais e podem ser usados conforme necessário. O resultado da execução do método será armazenado na variável `result`.
 
 ### Tratamento de Exceções:
 
